@@ -12,15 +12,12 @@ export class ListBooksComponent implements OnInit {
   books: Book[];
   @Input() book: Book;
   message: string;
-
   constructor(private bookService: BookService,
-              private router: Router) {
-  }
+              private router: Router) { }
 
   ngOnInit() {
     this.getListBook();
   }
-
   getListBook() {
     const updateBook = this.bookService.getList();
     updateBook.subscribe(newList => {
@@ -29,5 +26,19 @@ export class ListBooksComponent implements OnInit {
       console.log('error');
       this.message = error.message;
     });
+  }
+  deleteBook(id: number) {
+    this.bookService.delete(id).subscribe(() => {
+      this.message = 'Successfully deleted';
+      this.getListBook();
+    }, error => {
+      this.message = 'Failed when deleting book with id = ' + id;
+    });
+  }
+  editBook(id: number) {
+    this.router.navigate(['/edit', id]);
+  }
+  detailBook(id: number) {
+    this.router.navigate(['/detail', id]);
   }
 }

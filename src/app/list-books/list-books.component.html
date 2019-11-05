@@ -4,24 +4,26 @@
   <form>
     <table>
       <tr>
+        <div class="col-lg-12">
         <th>Title</th>
         <th>Author</th>
         <th>Delete</th>
         <th>Edit</th>
         <th>Detail</th>
+        </div>
       </tr>
       <tr *ngFor="let book of books">
-        <td>{{book.title}}</td>
+        <td><a [routerLink]="['/detail',book.id]"> {{book.title}}</a> </td>
         <td>{{book.author}}</td>
-<!--        <td>-->
-<!--          <button (click)="deleteBook(book.id)">Delete</button>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--          <button (click)="editBook(book.id)">Edit</button>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--          <button (click)="detailBook(book.id)">Detail</button>-->
-<!--        </td>-->
+        <td>
+          <button (click)="deleteBook(book.id)">Delete</button>
+        </td>
+        <td>
+          <button (click)="editBook(book.id)">Edit</button>
+        </td>
+        <td>
+          <button (click)="detailBook(book.id)">Detail</button>
+        </td>
       </tr>
     </table>
     <div *ngIf="message" style="text-align: center"><p style="color: red">{{ message }}</p></div>

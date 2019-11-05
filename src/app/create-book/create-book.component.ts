@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BookService} from '../book.service';
 
 @Component({
@@ -7,11 +7,14 @@ import {BookService} from '../book.service';
   styleUrls: ['./create-book.component.scss']
 })
 export class CreateBookComponent implements OnInit {
-message: string;
-  constructor(private bookService: BookService) { }
+  message: string;
+
+  constructor(private bookService: BookService) {
+  }
 
   ngOnInit() {
   }
+
   createBook(bookForm) {
     this.bookService.add(bookForm.value).subscribe(() => {
       this.message = 'successfully created';
