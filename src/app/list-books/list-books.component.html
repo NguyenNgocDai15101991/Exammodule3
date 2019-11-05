@@ -2,15 +2,16 @@
   <a [routerLink]="['/','createBook']">Create Book</a>
   <h2>Book List</h2>
   <form>
-    <table>
+    <table id="products">
+      <tbody>
       <tr>
-        <div class="col-lg-12">
-        <th>Title</th>
-        <th>Author</th>
-        <th>Delete</th>
-        <th>Edit</th>
-        <th>Detail</th>
-        </div>
+
+        <th class="title">Title</th>
+        <th class="title">Author</th>
+        <th class="title">Delete</th>
+        <th class="title">Edit</th>
+        <th class="title">Detail</th>
+
       </tr>
       <tr *ngFor="let book of books">
         <td><a [routerLink]="['/detail',book.id]"> {{book.title}}</a> </td>
@@ -25,7 +26,9 @@
           <button (click)="detailBook(book.id)">Detail</button>
         </td>
       </tr>
+      </tbody>
     </table>
+
     <div *ngIf="message" style="text-align: center"><p style="color: red">{{ message }}</p></div>
   </form>
 
