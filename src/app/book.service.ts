@@ -14,4 +14,9 @@ export class BookService {
     const url = `${this.apiUrl}/books`;
     return this.http.get<Book[]>(url);
   }
+  add(book: Book) {
+    const url = this.apiUrl + '/books';
+    return this.http.post(url, book);
+  }
+
 }
