@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
+import { CreateBookComponent } from './create-book/create-book.component';
+import { ListBooksComponent } from './list-books/list-books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent
+    CreateBookComponent,
+    ListBooksComponent
   ],
   imports: [
     BrowserModule,
